@@ -21,6 +21,19 @@
 - Installation de git: 
 > sudo apt-get install git
 
+# Installation de Composer sur Debian
+- Télécharger les paquets suivants:
+	>sudo apt install wget php-cli php-zip unzip
+- Faites les commandes suivantes : 
+	> php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+	> HASH="$(wget -q -O - https://composer.github.io/installer.sig)"
+	> php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+- Si votre console marque "Installer verified", l'installation sera bien effectué, faite les commandes suivantes:
+	> sudo php composer-setup.php --install-dir=/usr/local/bin –filename=composer
+	
+- Composer est bien installé, pour tester votre version de composer :
+	> composer --version
+
 # Changement de l'index.html
 Le fichier par défaut se situe sur /var/www/html/index.html, veuillez le supprimé avec la commande et remplacé par un autre fichier tels que index.php
  > sudo rm -r /var/www/html/index.html
